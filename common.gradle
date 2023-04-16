@@ -1,0 +1,149 @@
+def debug_version = project.hasProperty("buildType") && project.property("buildType") == "Debug" ? "-SNAPSHOT" : ""
+ext {
+    sdk = [
+            'compile': 33,
+            'min': 24,
+            'minEA': 25,
+            'target': 33
+    ]
+        jvmCompilerSourceCompatibility = JavaVersion.VERSION_11
+        jvmCompilerTargetCompatibility = JavaVersion.VERSION_11
+        kotlinJvmTarget = "11"
+        build_tools_version = '31.0.0'
+        kotlin_version = '1.6.21'
+        compose_version = '1.2.0'
+        coroutines_version = '1.6.4'
+        dagger_version = '2.26'
+        lifecycle_version_deprecated = '2.2.0'
+        lifecycle_version = '2.4.0'
+        room_version = '2.4.1'
+        retrofit_version = '2.7.1'
+        retrofit_coroutines_version = '0.9.2'
+        hilt_version = '2.38.1'
+        hilt_viewmodel_version = '1.0.0'
+        hilt_work_version = '1.0.0'
+        hilt_navigation_version = '1.0.0'
+        moshi_version = "1.11.0"
+        expresso_version = '3.1.0'
+
+    libraries = [
+            kotlin: [
+                    kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+                    stdlib: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+                    reflect: "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+            ],
+            androidx: [
+                    ktx: 'androidx.core:core-ktx:1.7.0'
+            ],
+            coroutines: [
+                    core: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
+                    android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version",
+                    jdk8: "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$coroutines_version",
+                    playServices: "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version",
+                    rx: "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutines_version",
+                    testing: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+            ],
+            dagger: [
+                    compiler: "com.google.dagger:dagger-compiler:$dagger_version",
+                    dagger: "com.google.dagger:dagger:$dagger_version",
+                    android: "com.google.dagger:dagger-android:$dagger_version",
+                    support: "com.google.dagger:dagger-android-support:$dagger_version",
+                    processor: "com.google.dagger:dagger-android-processor:$dagger_version"
+            ],
+            hilt: [
+                    hilt: "com.google.dagger:hilt-android:$hilt_version",
+                    hiltCompiler: "com.google.dagger:hilt-compiler:$hilt_version",
+                    work: "androidx.hilt:hilt-work:$hilt_work_version",
+                    compiler: "com.google.dagger:hilt-android-compiler:$hilt_version", // TODO: use hiltCompiler instead
+                    viewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03", // TODO: this library has been deprecated by google DO NOT USE
+                    viewmodelcompiler: "androidx.hilt:hilt-compiler:$hilt_viewmodel_version", // TODO: use hiltCompiler instead
+                    testing: "com.google.dagger:hilt-android-testing:2.37",
+                    navigationHiltViewModel: "androidx.hilt:hilt-navigation-fragment:$hilt_navigation_version",
+
+            ],
+            lifecycle: [
+                    extensions: "androidx.lifecycle:lifecycle-extensions:$lifecycle_version_deprecated",
+                    testing: "androidx.arch.core:core-testing:$lifecycle_version_deprecated",
+                    compiler: "androidx.lifecycle:lifecycle-compiler:$lifecycle_version",
+                    ktx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+                    runtime: "androidx.lifecycle:lifecycle-runtime:$lifecycle_version",
+                    runtimeKtx: "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version",
+            ],
+            room: [
+                    runtime: "androidx.room:room-runtime:$room_version",
+                    compiler: "androidx.room:room-compiler:$room_version",
+                    rxjava2: "androidx.room:room-rxjava2:$room_version",
+                    testing: "androidx.room:room-testing:$room_version",
+                    coroutines: "androidx.room:room-coroutines:$room_version",
+                    ktx: "androidx.room:room-ktx:$room_version"
+            ],
+            gson: "com.google.code.gson:gson:2.8.6",
+            retrofit: [
+                    retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
+                    converter: "com.squareup.retrofit2:converter-gson:$retrofit_version",
+                    adapterrxjava2: "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version",
+                    testing: "com.squareup.retrofit2:retrofit-mock:$retrofit_version",
+                    logger: "com.squareup.okhttp3:logging-interceptor:4.6.0",
+                    coroutines: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines_version"
+            ],
+            rx: [
+                    kotlin: 'io.reactivex.rxjava2:rxkotlin:2.4.0',
+                    java: 'io.reactivex.rxjava2:rxjava:2.2.11',
+                    android: 'io.reactivex.rxjava2:rxandroid:2.1.1'
+            ],
+            testing: [
+                    junit: 'junit:junit:4.12',
+                    junitExt: 'androidx.test.ext:junit:1.1.3',
+                    espresso: "androidx.test.espresso:espresso-core:$expresso_version",
+
+            ],
+            firebase: [
+                    boom: 'com.google.firebase:firebase-bom:28.4.0',
+                    analytics: 'com.google.firebase:firebase-analytics-ktx',
+                    auth: 'com.google.firebase:firebase-auth-ktx',
+                    config: 'com.google.firebase:firebase-config-ktx',
+                    crashlytics: 'com.google.firebase:firebase-crashlytics-ktx',
+                    database: 'com.google.firebase:firebase-database-ktx',
+                    dynamicLinks: 'com.google.firebase:firebase-dynamic-links-ktx',
+                    firestore: 'com.google.firebase:firebase-firestore-ktx',
+                    messaging: 'com.google.firebase:firebase-messaging-ktx',
+                    perf: 'com.google.firebase:firebase-perf-ktx',
+                    storage: 'com.google.firebase:firebase-storage-ktx',
+            ],
+            googlePlayServices: [
+                    auth: 'com.google.android.gms:play-services-auth:18.0.0',
+                    gcm: 'com.google.android.gms:play-services-gcm:17.0.0',
+                    location: 'com.google.android.gms:play-services-location:17.0.0',
+                    maps: 'com.google.android.gms:play-services-maps:17.0.0',
+                    analytics: 'com.google.android.gms:play-services-analytics:18.0.2',
+                    tagmanager: 'com.google.android.gms:play-services-tagmanager:18.0.2',
+                    playCore: 'com.google.android.play:core:1.8.0',
+                    ads: 'com.google.android.gms:play-services-ads:20.2.0',
+                    authPhone: 'com.google.android.gms:play-services-auth-api-phone:17.5.1',
+                    instant: 'com.google.android.gms:play-services-instantapps:17.0.0'
+            ],
+            android: [
+                    databindingKapt: 'com.android.databinding:compiler:3.1.4',
+                    multidex: 'androidx.multidex:multidex:2.0.1'
+            ],
+            material: [
+                    material3: 'androidx.compose.material3:material3:1.0.0-alpha11'
+            ],
+            thirdparty: [
+                    coil: "io.coil-kt:coil-compose:2.3.0"
+            ],
+            moshi: [
+                    moshi: "com.squareup.moshi:moshi-kotlin:$moshi_version",
+                    moshiConverter: "com.squareup.retrofit2:converter-moshi:2.9.0",
+                    kapt: "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+            ],
+            compose: [
+                    activityCompose: "androidx.activity:activity-compose:1.3.1",
+                    ui: "androidx.compose.ui:ui:$compose_version",
+                    uiToolingPreview: "androidx.compose.ui:ui-tooling-preview:$compose_version",
+                    uiTooling: "androidx.compose.ui:ui-tooling:$compose_version",
+                    test: "androidx.compose.ui:ui-test-junit4:$compose_version",
+                    uiTestManifest: "androidx.compose.ui:ui-test-manifest:$compose_version"
+            ],
+    ]
+}

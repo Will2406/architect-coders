@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: '../common.gradle'
+
+android {
+    namespace 'architect.coders.pokedex'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "architect.coders.pokedex"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.2.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation libraries.androidx.ktx
+    implementation libraries.lifecycle.runtime
+    implementation libraries.compose.activityCompose
+    implementation libraries.compose.ui
+    implementation libraries.compose.uiToolingPreview
+    implementation libraries.material.material3
+    testImplementation libraries.testing.junit
+    androidTestImplementation libraries.testing.junitExt
+    androidTestImplementation libraries.testing.espresso
+    androidTestImplementation libraries.compose.test
+    debugImplementation libraries.compose.uiTooling
+    debugImplementation libraries.compose.uiTestManifest
+
+    implementation libraries.thirdparty.coil
+}
