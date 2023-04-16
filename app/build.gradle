@@ -1,17 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
+
 apply from: '../common.gradle'
 
 android {
     namespace 'architect.coders.pokedex'
-    compileSdk 33
+    compileSdk sdk.compile
 
     defaultConfig {
         applicationId "architect.coders.pokedex"
-        minSdk 24
-        targetSdk 33
+        minSdk sdk.min
+        targetSdk sdk.target
         versionCode 1
         versionName "1.0"
 
@@ -63,4 +66,7 @@ dependencies {
     debugImplementation libraries.compose.uiTestManifest
 
     implementation libraries.thirdparty.coil
+
+    implementation libraries.hilt.hilt
+    kapt libraries.hilt.compiler
 }
