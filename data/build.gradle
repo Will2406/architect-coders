@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: '../common.gradle'
+
+android {
+    namespace 'architec.coders.pokedex.data'
+    compileSdk sdk.compile
+
+    defaultConfig {
+        minSdk sdk.min
+        targetSdk sdk.target
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://pokeapi.co/api/v2/\""
+        }
+
+        release {
+            buildConfigField "String", "BASE_URL", "\"https://pokeapi.co/api/v2/\""
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation libraries.androidx.ktx
+    testImplementation libraries.testing.junit
+    androidTestImplementation libraries.testing.junitExt
+    androidTestImplementation libraries.testing.espresso
+
+    implementation libraries.retrofit.retrofit
+    implementation libraries.moshi.moshiConverter
+
+    implementation libraries.hilt.hilt
+    kapt libraries.hilt.compiler
+}

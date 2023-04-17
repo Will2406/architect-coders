@@ -68,7 +68,6 @@ ext {
             gson: "com.google.code.gson:gson:2.8.6",
             retrofit: [
                     retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
-                    converter: "com.squareup.retrofit2:converter-gson:$retrofit_version",
                     testing: "com.squareup.retrofit2:retrofit-mock:$retrofit_version",
             ],
             testing: [
