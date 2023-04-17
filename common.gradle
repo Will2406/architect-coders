@@ -13,15 +13,13 @@ ext {
         kotlin_version = '1.6.21'
         compose_version = '1.2.0'
         coroutines_version = '1.6.4'
-        dagger_version = '2.26'
         lifecycle_version_deprecated = '2.2.0'
         lifecycle_version = '2.4.0'
         room_version = '2.4.1'
         retrofit_version = '2.7.1'
         retrofit_coroutines_version = '0.9.2'
-        hilt_version = '2.38.1'
+        hilt_version = '2.45'
         hilt_viewmodel_version = '1.0.0'
-        hilt_work_version = '1.0.0'
         hilt_navigation_version = '1.0.0'
         moshi_version = "1.11.0"
         expresso_version = '3.1.0'
@@ -43,17 +41,8 @@ ext {
                     rx: "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutines_version",
                     testing: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
             ],
-            dagger: [
-                    compiler: "com.google.dagger:dagger-compiler:$dagger_version",
-                    dagger: "com.google.dagger:dagger:$dagger_version",
-                    android: "com.google.dagger:dagger-android:$dagger_version",
-                    support: "com.google.dagger:dagger-android-support:$dagger_version",
-                    processor: "com.google.dagger:dagger-android-processor:$dagger_version"
-            ],
             hilt: [
                     hilt: "com.google.dagger:hilt-android:$hilt_version",
-                    hiltCompiler: "com.google.dagger:hilt-compiler:$hilt_version",
-                    work: "androidx.hilt:hilt-work:$hilt_work_version",
                     compiler: "com.google.dagger:hilt-android-compiler:$hilt_version", // TODO: use hiltCompiler instead
                     viewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03", // TODO: this library has been deprecated by google DO NOT USE
                     viewmodelcompiler: "androidx.hilt:hilt-compiler:$hilt_viewmodel_version", // TODO: use hiltCompiler instead
@@ -72,7 +61,6 @@ ext {
             room: [
                     runtime: "androidx.room:room-runtime:$room_version",
                     compiler: "androidx.room:room-compiler:$room_version",
-                    rxjava2: "androidx.room:room-rxjava2:$room_version",
                     testing: "androidx.room:room-testing:$room_version",
                     coroutines: "androidx.room:room-coroutines:$room_version",
                     ktx: "androidx.room:room-ktx:$room_version"
@@ -80,16 +68,7 @@ ext {
             gson: "com.google.code.gson:gson:2.8.6",
             retrofit: [
                     retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
-                    converter: "com.squareup.retrofit2:converter-gson:$retrofit_version",
-                    adapterrxjava2: "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version",
                     testing: "com.squareup.retrofit2:retrofit-mock:$retrofit_version",
-                    logger: "com.squareup.okhttp3:logging-interceptor:4.6.0",
-                    coroutines: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines_version"
-            ],
-            rx: [
-                    kotlin: 'io.reactivex.rxjava2:rxkotlin:2.4.0',
-                    java: 'io.reactivex.rxjava2:rxjava:2.2.11',
-                    android: 'io.reactivex.rxjava2:rxandroid:2.1.1'
             ],
             testing: [
                     junit: 'junit:junit:4.12',
@@ -103,8 +82,6 @@ ext {
                     auth: 'com.google.firebase:firebase-auth-ktx',
                     config: 'com.google.firebase:firebase-config-ktx',
                     crashlytics: 'com.google.firebase:firebase-crashlytics-ktx',
-                    database: 'com.google.firebase:firebase-database-ktx',
-                    dynamicLinks: 'com.google.firebase:firebase-dynamic-links-ktx',
                     firestore: 'com.google.firebase:firebase-firestore-ktx',
                     messaging: 'com.google.firebase:firebase-messaging-ktx',
                     perf: 'com.google.firebase:firebase-perf-ktx',
